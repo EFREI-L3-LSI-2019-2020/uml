@@ -1,0 +1,17 @@
+@startuml "Ex2"
+
+:Client: as client
+:Caissier: as caissier
+:Centre autorisation chèques: as cch
+:Gestion des stocks: as gs
+:Centre autorisation cartes: as cca
+
+rectangle "test" {
+	(Traiter le payement) as tp
+	(Terminer la venter) as tv
+	(Affichier le prix et le libellé) as apl
+	(Enregistrer les articles) as ea
+	(Imprimer le ticket) as it
+}
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml "Ex1"
+rectangle "Agence de voyage"{
+	(Organiser un voyage) as organiz_trip
+	(Réserver chambre d'hotel) as reserv_hotel
+	(Réserver un taxi) as reserv_taxi
+	(Réserver un titre de transport) as reserv_transport
+	(Réserver un billet de train) as reserv_train
+	(Réserver un billet d'avion) as reserv_plane
+	(Etablir une facture détaillée) as bill_detail
+	Note "Condition: {à la demande du client}\n Point d’extension: EtablirUneFacture" as note
+
+	organiz_trip .up.> reserv_transport : <<inclut>>
+	organiz_trip .up.> reserv_taxi : <<inclut>>
+	organiz_trip .up.> reserv_hotel : <<inclut>>
+
+	reserv_transport <-down- reserv_train
+	reserv_transport <-down- reserv_plane
+
+	organiz_trip .. note : <<étend>>
+	note .. bill_detail
+}
+
+:Agent de voyage: -left- organiz_trip
+
+@enduml
